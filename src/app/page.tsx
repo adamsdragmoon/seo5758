@@ -5,16 +5,7 @@ import clsx from 'clsx'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
-import {
-  GitHubIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  XIcon,
-} from '@/components/SocialIcons'
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
+import logoPocari4D from '@/images/logos/pocari4d.png'
 import image1 from '@/images/photos/bannerpocari4d.webp'
 import image2 from '@/images/photos/pasti-jp-seo-pocari4d.webp'
 import image3 from '@/images/photos/slot-gacor-pocari4d.webp'
@@ -70,19 +61,6 @@ function BriefcaseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-function ArrowDownIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
-      <path
-        d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
 function Article({ article }: { article: ArticleWithSlug }) {
   return (
     <Card as="article">
@@ -111,7 +89,7 @@ function SocialLink({
   )
 }
 
-function Newsletter() {
+function KlaimBonus() {
   return (
     <form
       action="/thank-you"
@@ -119,10 +97,10 @@ function Newsletter() {
     >
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
         <MailIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Stay up to date</span>
+        <span className="ml-3">Klaim Bonus</span>
       </h2>
       <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Get notified when I publish something new, and unsubscribe at any time.
+        Berlangganan Informasi Slot Gacor dan klaim bonus anda. Jangan lewatkan kesempatan ini!
       </p>
       <div className="mt-6 flex">
         <input
@@ -132,53 +110,34 @@ function Newsletter() {
           required
           className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10"
         />
-        <Button type="submit" className="ml-4 flex-none">
-          Join
+        <Button href="https://shrtx.cc/go/bQWYVl" target="_blank" rel="noopener noreferrer" type="submit" className="ml-4 flex-none">
+          Daftar
         </Button>
       </div>
     </form>
   )
 }
 
-interface Role {
-  company: string
-  title: string
+interface GameProvider {
+  provider: string
+  category: string
   logo: ImageProps['src']
-  start: string | { label: string; dateTime: string }
-  end: string | { label: string; dateTime: string }
 }
 
-function Role({ role }: { role: Role }) {
-  let startLabel =
-    typeof role.start === 'string' ? role.start : role.start.label
-  let startDate =
-    typeof role.start === 'string' ? role.start : role.start.dateTime
-
-  let endLabel = typeof role.end === 'string' ? role.end : role.end.label
-  let endDate = typeof role.end === 'string' ? role.end : role.end.dateTime
-
+function GameProvider({ gameprovider }: { gameprovider: GameProvider }) {
   return (
     <li className="flex gap-4">
       <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-        <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
+        <Image src={gameprovider.logo} alt="" className="h-7 w-7" unoptimized />
       </div>
       <dl className="flex flex-auto flex-wrap gap-x-2">
-        <dt className="sr-only">Company</dt>
+        <dt className="sr-only">Game Provider</dt>
         <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-          {role.company}
+          {gameprovider.provider}
         </dd>
         <dt className="sr-only">Role</dt>
         <dd className="text-xs text-zinc-500 dark:text-zinc-400">
-          {role.title}
-        </dd>
-        <dt className="sr-only">Date</dt>
-        <dd
-          className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-          aria-label={`${startLabel} until ${endLabel}`}
-        >
-          <time dateTime={startDate}>{startLabel}</time>{' '}
-          <span aria-hidden="true">—</span>{' '}
-          <time dateTime={endDate}>{endLabel}</time>
+          {gameprovider.category}
         </dd>
       </dl>
     </li>
@@ -186,37 +145,46 @@ function Role({ role }: { role: Role }) {
 }
 
 function Resume() {
-  let resume: Array<Role> = [
+  let resume: Array<GameProvider> = [
     {
-      company: 'Planetaria',
-      title: 'CEO',
-      logo: logoPlanetaria,
-      start: '2019',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear().toString(),
-      },
+      provider: 'IDN Slot',
+      category: 'Slot Games',
+      logo: logoPocari4D,
     },
     {
-      company: 'Airbnb',
-      title: 'Product Designer',
-      logo: logoAirbnb,
-      start: '2014',
-      end: '2019',
+      provider: 'Pragmatic Play',
+      category: 'Slot Games',
+      logo: logoPocari4D,
     },
     {
-      company: 'Facebook',
-      title: 'iOS Software Engineer',
-      logo: logoFacebook,
-      start: '2011',
-      end: '2014',
+      provider: 'PG Soft',
+      category: 'Slot Games',
+      logo: logoPocari4D,
     },
     {
-      company: 'Starbucks',
-      title: 'Shift Supervisor',
-      logo: logoStarbucks,
-      start: '2008',
-      end: '2011',
+      provider: 'Microgaming',
+      category: 'Slot Games',
+      logo: logoPocari4D,
+    },
+    {
+      provider: 'Habanero',
+      category: 'Slot Games',
+      logo: logoPocari4D,
+    },
+    {
+      provider: 'GMW',
+      category: 'Slot Games',
+      logo: logoPocari4D,
+    },
+    {
+      provider: 'Top Trend',
+      category: 'Slot Games',
+      logo: logoPocari4D,
+    },
+    {
+      provider: 'No Limit City',
+      category: 'Slot Games',
+      logo: logoPocari4D,
     },
   ]
 
@@ -224,16 +192,15 @@ function Resume() {
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
         <BriefcaseIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Work</span>
+        <span className="ml-3">Daftar Game Provider Slot</span>
       </h2>
       <ol className="mt-6 space-y-4">
-        {resume.map((role, roleIndex) => (
-          <Role key={roleIndex} role={role} />
+        {resume.map((gameprovider, gameproviderIndex) => (
+          <GameProvider key={gameproviderIndex} gameprovider={gameprovider} />
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
-        Download CV
-        <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
+      <Button href="https://shrtx.cc/go/bQWYVl" target="_blank" rel="noopener noreferrer" variant="secondary" className="group mt-6 w-full">
+        Daftar untuk Bermain Slot Gacor !
       </Button>
     </div>
   )
@@ -279,24 +246,6 @@ export default async function Home() {
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             Kami menyajikan informasi dan update terbaru tentang slot gacor di tahun 2024. Jika kamu sedang mencari slot dengan tingkat pembayaran tinggi dan sering memberikan jackpot, jangan lewatkan rekomendasi slot gacor terbaik di tahun 2024 hanya di website ini. Bagi para penggemar slot, jangan lewatkan informasi terbaru tentang rahasia sukses memenangkan slot gacor favoritmu dan raih keberuntungan besar!
           </p>
-          <div className="mt-6 flex gap-6">
-            <SocialLink href="#" aria-label="Follow on X" icon={XIcon} />
-            <SocialLink
-              href="#"
-              aria-label="Follow on Instagram"
-              icon={InstagramIcon}
-            />
-            <SocialLink
-              href="#"
-              aria-label="Follow on GitHub"
-              icon={GitHubIcon}
-            />
-            <SocialLink
-              href="#"
-              aria-label="Follow on LinkedIn"
-              icon={LinkedInIcon}
-            />
-          </div>
         </div>
       </Container>
       <Photos />
@@ -308,7 +257,7 @@ export default async function Home() {
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Newsletter />
+            <KlaimBonus />
             <Resume />
           </div>
         </div>

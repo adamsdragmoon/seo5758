@@ -9,8 +9,8 @@ import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-// import avatarImage from '@/images/avatar.jpg'
-const avatarImage = "https://anonymous214782.files.wordpress.com/2023/10/fav1.png";
+import avatarImage from '@/images/logos/pocari4d.png'
+
 
 function CloseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -182,9 +182,6 @@ function DesktopNavigation(props: React.ComponentPropsWithoutRef<'nav'>) {
       <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
         <NavItem href="/about">About</NavItem>
         <NavItem href="/articles">Articles</NavItem>
-        <NavItem href="/projects">Projects</NavItem>
-        <NavItem href="/speaking">Speaking</NavItem>
-        <NavItem href="/uses">Uses</NavItem>
       </ul>
     </nav>
   )

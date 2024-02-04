@@ -3,15 +3,15 @@ import { type Metadata } from 'next'
 import { SimpleLayout } from '@/components/SimpleLayout'
 
 export const metadata: Metadata = {
-  title: 'You’re subscribed',
-  description: 'Thanks for subscribing to my newsletter.',
+  title: 'Anda telah berlangganan informasi slot gacor 2024.',
+  description: 'Terima kasih telah berlangganan informasi slot gacor 2024',
 }
 
 export default function ThankYou() {
   return (
     <SimpleLayout
-      title="Thanks for subscribing."
-      intro="I’ll send you an email any time I publish a new blog post, release a new project, or have anything interesting to share that I think you’d want to hear about. You can unsubscribe at any time, no hard feelings."
+      title="Terima kasih telah berlangganan informasi slot gacor 2024."
+      intro="Kami akan mengirimkan informasi terbaru slot gacor 2024 lewat email untuk memberikan tips dan trik seputar slot gacor, slot demo, slot online, prediksi pola scatter slot, RTP Slot, dan informasi lain terkait slot gacor."
     />
   )
 }
